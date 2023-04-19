@@ -1,3 +1,5 @@
+// ——————————*** MATCH CARD ITEM ***———————————
+// getting the Id's 
 const matchCard = document.getElementById("match-card");
 const playtimeValue = document.getElementById("playtime-value");
 const scoreValue = document.getElementById("score-value");
@@ -29,3 +31,6 @@ foulsLeftValue.textContent = "5";
 foulsLeftBar.style.width = "50%";
 foulsRightValue.textContent = "4";
 foulsRightBar.style.width = "40%";
+
+
+// ——————————*** MATCH CARD ITEM ***———————————
