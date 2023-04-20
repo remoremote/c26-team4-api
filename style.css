@@ -1,235 +1,397 @@
 :root {
-    /* Colors */
-    --black: rgba(16, 15, 15, 1);
-    --black-2: rgba(0, 0, 0, 1);
-    --dark-violet: rgba(173, 0, 255, 1);
-    --forest-green: rgba(0, 136, 57, 1);
-    --gold: rgba(255, 210, 0, 1);
-    --orange: rgba(255, 166, 0, 1);
-    --transparent-dark-violet: rgba(173, 0, 255, 0.1);
-    --transparent-dark-violet-2: rgba(173, 0, 255, 0.2);
-    --transparent-forest-green: rgba(0, 136, 57, 0.2);
-    --white: rgba(255, 255, 255, 1);
+	--black: rgba(16, 15, 15, 1);
+	--black-2: rgba(0, 0, 0, 1);
+	--dark-violet: rgba(173, 0, 255, 1);
+	--forest-green: rgba(0, 136, 57, 1);
+	--gold: rgba(255, 210, 0, 1);
+	--orange: rgb(255, 111, 0);
+	--transparent-dark-violet: rgba(173, 0, 255, 0.1);
+	--transparent-dark-violet-2: rgba(173, 0, 255, 0.2);
+	--transparent-forest-green: rgba(0, 136, 57, 0.2);
+	--white: rgba(255, 255, 255, 1);
+  
+	/* Font and spacing */
+	--base-font-family: "Inter", sans-serif;
+	--base-font-size: 16px;
+	--base-line-height: 1.5;
+	--base-spacing: 24px;
+  }
+  
+  html {
+	font-family: var(--base-font-family);
+	font-size: var(--base-font-size);
+	line-height: var(--base-line-height);
+	padding: 0 calc(var(--base-spacing) * 2);
+	max-width: 66%;
+	margin: 0 auto;
+  }
+  
+  a, p, h1, h2, h3 {
+	font-family: var(--base-font-family);
+  }
+  
+  /*—————————————— grid setup ——————————————*/
+  
+  .parent {
+	display: grid;
+	grid-template-columns: repeat(8, 1fr);
+	grid-gap: var(--base-spacing);
   }
 
-html {
-	font-family: 'Inter', sans-serif;    
-	padding: 0 48px;
-    max-width: 66%;
-    margin: 0 auto;
+.div1 {
+	grid-area: 1 / 1 / 2 / 9;
 }
 
-a,
-p,
-h1,
-h2,
-h3 {
-	font-family: "Inter", sans-serif;
+.div2 {
+	grid-area: 2 / 1 / 3 / 3;
+}
+
+.div3 {
+	grid-area: 2 / 3 / 3 / 9;
+}
+
+.div4 {
+	grid-area: 3 / 3 / 4 / 9;
+}
+
+.div5 {
+	grid-area: 4 / 3 / 5 / 9;
+}
+
+.div6 {
+	grid-area: 5 / 3 / 6 / 9;
+}
+
+.match-card-item {
+	grid-area: 3 / 1 / 6 / 3;
+}
+
+.team-card-item {
+	grid-area: 6 / 1 / 10 / 3;
+}
+
+.div9 {
+	grid-area: 6 / 3 / 7 / 9;
+}
+
+.div10 {
+	grid-area: 7 / 3 / 8 / 9;
+}
+
+.div11 {
+	grid-area: 8 / 3 / 9 / 9;
+}
+
+.div12 {
+	grid-area: 9 / 3 / 10 / 9;
+}
+
+/*—————————————— current match card ——————————————*/
+
+.match-card {
+	background-color: var(--white);
+	border-radius: 8px;
+	padding: 26px 21px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid var(--black-2);
+}
+
+.match-info {
+	margin-bottom: 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	align-self: stretch;
+}
+
+.playtime-label {
+	font-family: "Inter";
+	font-size: 16px;
+	font-weight: 600;
+	line-height: normal;
+	color: var(--black);
+	align-self: stretch;
+	text-align: center;
+	margin-bottom: 6px;
+}
+
+.playtime-value {
+	font-family: "Inter";
+	font-size: 14px;
+	font-weight: 500;
+	line-height: normal;
+	color: var(--forest-green);
+	align-self: stretch;
+	text-align: center;
+}
+
+.team {
+	margin-bottom: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	align-self: stretch;
+}
+
+.team-logo-left {
+	width: 56px;
+	height: 56px;
+	background-color: var(--orange);
+	margin-right: 32px;
+	border-radius: 40px;
+}
+
+.score {
+	background-color: var(--transparent-dark-violet);
+	margin-right: 32px;
+	border-radius: 50px;
+	padding: 8px 16px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex: 1;
+}
+
+.score-value {
+	font-family: "Inter";
+	font-size: 18px;
+	font-weight: 600;
+	line-height: normal;
+	color: var(--dark-violet);
+}
+
+.team-logo-right {
+	width: 56px;
+	height: 56px;
+	background-color: var(--gold);
+	border-radius: 40px;
+}
+
+.stats-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 257px;
+}
+
+.stat-group {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	align-self: stretch;
+}
+
+.stat-group:not\(\:last-of-type\) {
+	margin-bottom: 16px;
+}
+
+.stat-label {
+	font-family: "Inter";
+	font-size: 14px;
+	font-weight: 500;
+	line-height: normal;
+	color: var(--black-2);
+	align-self: stretch;
+	text-align: center;
+}
+
+.stat-bars {
+	display: flex;
+	align-items: flex-start;
+	align-self: stretch;
+}
+
+.stat-left {
+	margin-right: 8px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	width: 125px;
+}
+
+.stat-value {
+	font-family: "Inter";
+	font-size: 14px;
+	font-weight: 600;
+	line-height: normal;
+	color: var(--dark-violet);
+	align-self: stretch;
+	margin-bottom: 6px;
+}
+
+.bar-container-left {
+	background-color: var(--transparent-dark-violet-2);
+	border-radius: 3px;
+	padding: 0 0 0 39px;
+	display: flex;
+	align-items: flex-start;
+}
+
+.bar-left {
+	width: 84px;
+	height: 4px;
+	background-color: var(--dark-violet);
+	border-radius: 3px;
+}
+
+.stat-right {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	justify-content: center;
+	flex: 1;
+}
+
+.bar-container-right {
+	background-color: var(--transparent-forest-green);
+	border-radius: 3px;
+	padding: 0 83px 0 0;
+	display: flex;
+	align-items: flex-start;
+}
+
+.bar-right {
+	width: 40px;
+	height: 4px;
+	background-color: var(--forest-green);
+	border-radius: 3px;
+}
+
+.bar-container-left-alt {
+	background-color: var(--transparent-dark-violet-2);
+	border-radius: 3px;
+	padding: 0 0 0 19px;
+	display: flex;
+	align-items: flex-start;
+}
+
+.bar-left-alt {
+	width: 104px;
+	height: 4px;
+	background-color: var(--dark-violet);
+	border-radius: 3px;
+}
+
+.bar-container-right-alt {
+	background-color: var(--transparent-forest-green);
+	border-radius: 3px;
+	padding: 0 58px 0 0;
+	display: flex;
+	align-items: flex-start;
+}
+
+.bar-right-alt {
+	width: 65px;
+	height: 4px;
+	background-color: var(--forest-green);
+	border-radius: 3px;
 }
 
 
-.parent {
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(9, 1fr);
-    grid-column-gap: 24px;
-    grid-row-gap: 24px;
-    }
-    
-    .div1 { grid-area: 1 / 1 / 2 / 9; }
-    .div2 { grid-area: 2 / 1 / 3 / 3; }
-    .div3 { grid-area: 2 / 3 / 3 / 9; }
-    .div4 { grid-area: 3 / 3 / 4 / 9; }
-    .div5 { grid-area: 4 / 3 / 5 / 9; }
-    .div6 { grid-area: 5 / 3 / 6 / 9; }
-    .match-card-item { grid-area: 3 / 1 / 6 / 3; }
-    .div8 { grid-area: 6 / 1 / 10 / 3; }
-    .div9 { grid-area: 6 / 3 / 7 / 9; }
-    .div10 { grid-area: 7 / 3 / 8 / 9; }
-    .div11 { grid-area: 8 / 3 / 9 / 9; }
-    .div12 { grid-area: 9 / 3 / 10 / 9; }
+/*—————————————— team card ——————————————*/
 
-	.match-card {
-		background-color: var(--white);
-		border-radius: 8px;
-		padding: 26px 21px;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		border: 1px solid var(--black-2);
-	  }
-	  .match-info {
-		margin-bottom: 20px;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		align-self: stretch;
-	  }
-	  .playtime-label {
-		font-family: "Inter";
-		font-size: 16px;
-		font-weight: 600;
-		line-height: normal;
-		color: var(--black);
-		align-self: stretch;
-		text-align: center;
-		margin-bottom: 6px;
-	  }
-	  .playtime-value {
-		font-family: "Inter";
-		font-size: 14px;
-		font-weight: 500;
-		line-height: normal;
-		color: var(--forest-green);
-		align-self: stretch;
-		text-align: center;
-	  }
-	  .team {
-		margin-bottom: 20px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		align-self: stretch;
-		}
-		.team-logo-left {
-		width: 56px;
-		height: 56px;
-		background-color: var(--orange);
-		margin-right: 32px;
-		border-radius: 40px;
-		}
-		.score {
-		background-color: var(--transparent-dark-violet);
-		margin-right: 32px;
-		border-radius: 50px;
-		padding: 8px 16px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		flex: 1;
-		}
-		.score-value {
-		font-family: "Inter";
-		font-size: 18px;
-		font-weight: 600;
-		line-height: normal;
-		color: var(--dark-violet);
-		}
-		.team-logo-right {
-		width: 56px;
-		height: 56px;
-		background-color: var(--gold);
-		border-radius: 40px;
-		}
-		.stats-container {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		width: 257px;
-		}
-		.stat-group {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		align-self: stretch;
-		}
-		.stat-group:not(:last-of-type) {
-		margin-bottom: 16px;
-		}
-		.stat-label {
-		font-family: "Inter";
-		font-size: 14px;
-		font-weight: 500;
-		line-height: normal;
-		color: var(--black-2);
-		align-self: stretch;
-		text-align: center;
-		}
-		.stat-bars {
-		display: flex;
-		align-items: flex-start;
-		align-self: stretch;
-		}
-		.stat-left {
-		margin-right: 8px;
-		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
-		width: 125px;
-		}
-		.stat-value {
-		font-family: "Inter";
-		font-size: 14px;
-		font-weight: 600;
-		line-height: normal;
-		color: var(--dark-violet);
-		align-self: stretch;
-		margin-bottom: 6px;
-		}
-		.bar-container-left {
-		background-color: var(--transparent-dark-violet-2);
-		border-radius: 3px;
-		padding: 0 0 0 39px;
-		display: flex;
-		align-items: flex-start;
-		}
-		.bar-left {
-		width: 84px;
-		height: 4px;
-		background-color: var(--dark-violet);
-		border-radius: 3px;
-		}
-		.stat-right {
-		display: flex;
-		flex-direction: column;
-		align-items: flex-end;
-		justify-content: center;
-		flex: 1;
-		}
-		.bar-container-right {
-		background-color: var(--transparent-forest-green);
-		border-radius: 3px;
-		padding: 0 83px 0 0;
-		display: flex;
-		align-items: flex-start;
-		}
-		.bar-right {
-		width: 40px;
-		height: 4px;
-		background-color: var(--forest-green);
-		border-radius: 3px;
-		}
-		.bar-container-left-alt {
-		background-color: var(--transparent-dark-violet-2);
-		border-radius: 3px;
-		padding: 0 0 0 19px;
-		display: flex;
-		align-items: flex-start;
-		}
-		.bar-left-alt {
-		width: 104px;
-		height: 4px;
-		background-color: var(--dark-violet);
-		border-radius: 3px;
-		}
-		.bar-container-right-alt {
-		background-color: var(--transparent-forest-green);
-		border-radius: 3px;
-		padding: 0 58px 0 0;
-		display: flex;
-		align-items: flex-start;
-		}
-		.bar-right-alt {
-		width: 65px;
-		height: 4px;
-		background-color: var(--forest-green);
-		border-radius: 3px;
-		}
-		
-		
-  
+.line-up {
+	background-color: var(--white);
+	overflow: hidden;
+	border-radius: 8px;
+	padding: 31px 21px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border: 1px solid var(--black-2);
+  }
+  .team-line-up {
+	font-family: "Inter";
+	font-size: 16px;
+	font-weight: 500;
+	line-height: normal;
+	color: var(--black);
+	margin-bottom: 16px;
+  }
+  .team-player {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+  }
+  .manager-three {
+	margin-bottom: 16px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 258px;
+  }
+  .manager {
+	font-family: "Inter";
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 17px;
+	color: rgba(164, 164, 164, 1);
+	align-self: stretch;
+	text-align: center;
+	margin-bottom: 16px;
+  }
+  .manager-two {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	align-self: stretch;
+  }
+  .fernando-santos {
+	font-family: "Inter";
+	font-size: 14px;
+	font-weight: 500;
+	line-height: normal;
+	color: var(--black);
+	flex: 1;
+  }
+  .vector-14 {
+	width: 258px;
+	margin-bottom: 16px;
+  }
+  .player-team-two {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+  }
+  .player-team {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 258px;
+  }
+  .player-team:not(:last-of-type) {
+	margin-bottom: 16px;
+  }
+  .initials-left {
+	font-family: "Inter";
+	font-size: 14px;
+	font-weight: 500;
+	line-height: normal;
+	color: var(--forest-green);
+  }
+
+  .player-name-right {
+	flex: 1;
+	text-align: right;
+	font-family: "Inter";
+	font-size: 14px;
+	font-weight: 500;
+	line-height: normal;
+	color: var(--black);
+  }
+ 
+  .initals-right {
+	font-family: "Inter";
+	font-size: 14px;
+	font-weight: 500;
+	line-height: normal;
+	color: var(--dark-violet);
+  }
   
