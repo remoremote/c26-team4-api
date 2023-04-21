@@ -334,8 +334,27 @@ p {
 	max-width: 250px;
   }
   
-  .team-left,
-  .team-right {}
+  .team-left {
+	text-align: left;
+  }
+  .team-right {
+	text-align: right;
+  }
+
+  .team-members {
+	display: flex;
+	font-size: 14px;
+  }
+
+  .player-initials-left {
+	color: var(--dark-violet);
+	padding-right: 6px;
+  }
+
+  .player-initials-right {
+	color: var(--forest-green);
+	padding-left: 6px;
+  }
   
   .team-name {}
   
