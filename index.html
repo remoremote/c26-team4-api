@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="reset.css">
     <title>Football Dashboard</title>
 </head>
 <body>
@@ -18,28 +22,30 @@
 <div class="div6"> </div>
 
 <div class="match-card-item"> 
+  
   <div class="match-card">
     <div class="match-info">
       <p class="playtime-label">Playtime</p>
-      <p class="playtime-value">62 : 24</p>
+      <p class="playtime-value" id="playtime-value">62 : 24</p>
     </div>
-    <div class="team">
-      <div class="team-logo-left"></div>
-      <div class="score"><p class="score-value">2 - 2</p></div>
-      <div class="team-logo-right"></div>
+    <div class="team-and-score">
+      <div class="team-logo-left" id="team-logo-left"></div>
+      <div class="score">
+          <p class="score-value" id="score-value">2 - 2</p></div>
+      <div class="team-logo-right" id="team-logo-right"></div>
     </div>
     <div class="stats-container">
       <div class="stat-group">
         <p class="stat-label">Shoot on Target</p>
         <div class="stat-bars">
           <div class="stat-left">
-            <p class="stat-value">7</p>
+            <p class="stat-value" id="left-shots-on-target">7</p>
             <div class="bar-container-left">
               <div class="bar-left"></div>
             </div>
           </div>
           <div class="stat-right">
-            <p class="stat-value">3</p>
+            <p class="stat-value" id="right-shots-on-target">3</p>
             <div class="bar-container-right">
               <div class="bar-right"></div>
             </div>
@@ -50,13 +56,13 @@
         <p class="stat-label">Shoot</p>
         <div class="stat-bars">
           <div class="stat-left">
-            <p class="stat-value">12</p>
+            <p class="stat-value" id="left-shoot">12</p>
             <div class="bar-container-left-alt">
               <div class="bar-left-alt"></div>
             </div>
           </div>
           <div class="stat-right">
-            <p class="stat-value">7</p>
+            <p class="stat-value" id="right-shoot">7</p>
             <div class="bar-container-right-alt">
               <div class="bar-right-alt"></div>
             </div>
@@ -67,13 +73,13 @@
         <p class="stat-label">Fouls</p>
         <div class="stat-bars">
           <div class="stat-left">
-            <p class="stat-value">7</p>
+            <p class="stat-value" id="left-fouls">7</p>
             <div class="bar-container-left">
               <div class="bar-left"></div>
             </div>
           </div>
           <div class="stat-right">
-            <p class="stat-value">3</p>
+            <p class="stat-value" id="right-fouls">3</p>
             <div class="bar-container-right">
               <div class="bar-right"></div>
             </div>
@@ -85,169 +91,7 @@
 
 </div>
 
-<div class="team-card-item">
-  <div class="line-up">
-    <p class="team-line-up">Team Line Up</p>
-    <div class="team-player">
-      <div class="manager-three">
-        <p class="manager">Manager</p>
-        <div class="manager-two">
-          <p class="fernando-santos">Fernando Santos</p>
-          <p class="fernando-santos">Roberto Martínez</p>
-        </div>
-      </div>
-      
-      <div class="player-team-two">
-        <div class="player-team">
-          <p class="fernando-santos">
-            <strong class="initials-left"
-              >GK</strong
-            >
-            Diogo Costa
-          </p>
-          <p class="player-name-right">
-            T. Courtois <strong class="initals-right"
-              >GK</strong
-            >
-          </p>
-        </div>
-        <div class="player-team">
-          <p class="fernando-santos">
-            <strong class="initials-left"
-              >DF</strong
-            >
-            Danilo Pereira
-          </p>
-          <p class="player-name-right">
-            Wout Faes <strong class="initals-right"
-              >DF</strong
-            >
-          </p>
-        </div>
-        <div class="player-team">
-          <p class="fernando-santos">
-            <strong class="initials-left"
-              >DF</strong
-            >
-            Pepe
-          </p>
-          <p class="player-name-right">
-            T. Meunier <strong class="initals-right"
-              >DF</strong
-            >
-          </p>
-        </div>
-        <div class="player-team">
-          <p class="fernando-santos">
-            <strong class="initials-left"
-              >DF </strong
-            >Rúben Dias
-          </p>
-          <p class="player-name-right">
-            A. Theate
-            <strong class="initals-right"
-              >DF</strong
-            >
-          </p>
-        </div>
-        <div class="player-team">
-          <p class="fernando-santos">
-            <strong class="initials-left"
-              >MF</strong
-            >
-            Bernardo Silva
-          </p>
-          <p class="player-name-right">
-            Kevin D.B
-            <strong class="initals-right"
-              >MF</strong
-            >
-          </p>
-        </div>
-        <div class="player-team">
-          <p class="fernando-santos">
-            <strong class="initials-left"
-              >MF</strong
-            >
-            Bruno .F
-          </p>
-          <p class="player-name-right">
-            Axel Witsel <strong class="initals-right"
-              >MF</strong
-            >
-          </p>
-        </div>
-        <div class="player-team">
-          <p class="fernando-santos">
-            <strong class="initials-left"
-              >MF</strong
-            >
-            João Palhinha
-          </p>
-          <p class="player-name-right">
-            H. Vanaken <strong class="initals-right"
-              >MF</strong
-            >
-          </p>
-        </div>
-        <div class="player-team">
-          <p class="fernando-santos">
-            <strong class="initials-left"
-              >MF</strong
-            >
-            Nuno Mendes
-          </p>
-          <p class="player-name-right">
-            A. Onana <strong class="initals-right"
-              >MF</strong
-            >
-          </p>
-        </div>
-        <div class="player-team">
-          <p class="fernando-santos">
-            <strong class="initials-left"
-              >FW</strong
-            >
-            C. Ronaldo
-          </p>
-          <p class="player-name-right">
-            R. Lukaku <strong class="initals-right"
-              >FW</strong
-            >
-          </p>
-        </div>
-        <div class="player-team">
-          <p class="fernando-santos">
-            <strong class="initials-left"
-              >FW</strong
-            >
-            João Félix
-          </p>
-          <p class="player-name-right">
-            E. Hazard <strong class="initals-right"
-              >FW</strong
-            >
-          </p>
-        </div>
-        <div class="player-team">
-          <p class="fernando-santos">
-            <strong class="initials-left"
-              >FQ</strong
-            >
-            Ricardo Horta
-          </p>
-          <p class="player-name-right">
-            D. Mertens
-            <strong class="initals-right"
-              >FW</strong
-            >
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-</div>
+<div class="team-card-item"></div>
 
 <div class="div9"><h2>Upcoming Matches</h2></div>
 <div class="div10"> </div>

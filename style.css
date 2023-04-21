@@ -11,32 +11,48 @@
 	--white: rgba(255, 255, 255, 1);
   
 	/* Font and spacing */
-	--base-font-family: "Inter", sans-serif;
+	--base-font-family: 'Inter', sans-serif;
 	--base-font-size: 16px;
 	--base-line-height: 1.5;
-	--base-spacing: 24px;
+	--base-spacing: 12px;
   }
   
-  html {
+/* ——————— initial setup ————————— */
+html,
+ body {
+  	margin: 0;
+  	padding: 0;
+  	scroll-behavior: smooth;
+  	font-family: var(--base-font-family);
+  	font-size: var(--base-font-size);
+  	background-color:  rgba(16, 15, 15, 0.1);
+}
+
+p {
+	font-family: var(--base-font-family);
+	font-size: var(--base-font-size);
+}
+  
+  h1, h2, h3 {
+	font-family: var(--base-font-family);
+  }
+
+
+  
+/*—————————————— grid setup ——————————————*/
+  
+.parent {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-gap: var(--base-spacing);
+
 	font-family: var(--base-font-family);
 	font-size: var(--base-font-size);
 	line-height: var(--base-line-height);
 	padding: 0 calc(var(--base-spacing) * 2);
-	max-width: 66%;
+	max-width: 80%;
 	margin: 0 auto;
-  }
-  
-  a, p, h1, h2, h3 {
-	font-family: var(--base-font-family);
-  }
-  
-  /*—————————————— grid setup ——————————————*/
-  
-  .parent {
-	display: grid;
-	grid-template-columns: repeat(8, 1fr);
-	grid-gap: var(--base-spacing);
-  }
+}
 
 .div1 {
 	grid-area: 1 / 1 / 2 / 9;
@@ -86,8 +102,6 @@
 	grid-area: 9 / 3 / 10 / 9;
 }
 
-/*—————————————— current match card ——————————————*/
-
 .match-card {
 	background-color: var(--white);
 	border-radius: 8px;
@@ -105,16 +119,13 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	align-self: stretch;
 }
 
 .playtime-label {
 	font-family: "Inter";
 	font-size: 16px;
 	font-weight: 600;
-	line-height: normal;
 	color: var(--black);
-	align-self: stretch;
 	text-align: center;
 	margin-bottom: 6px;
 }
@@ -123,18 +134,15 @@
 	font-family: "Inter";
 	font-size: 14px;
 	font-weight: 500;
-	line-height: normal;
 	color: var(--forest-green);
-	align-self: stretch;
 	text-align: center;
 }
 
-.team {
+.team-and-score {
 	margin-bottom: 20px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	align-self: stretch;
 }
 
 .team-logo-left {
@@ -160,7 +168,6 @@
 	font-family: "Inter";
 	font-size: 18px;
 	font-weight: 600;
-	line-height: normal;
 	color: var(--dark-violet);
 }
 
@@ -184,27 +191,23 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	align-self: stretch;
 }
 
-.stat-group:not\(\:last-of-type\) {
-	margin-bottom: 16px;
+.stat-group:not(:last-of-type) {
+	margin-bottom: 32px;
 }
 
 .stat-label {
 	font-family: "Inter";
 	font-size: 14px;
 	font-weight: 500;
-	line-height: normal;
 	color: var(--black-2);
-	align-self: stretch;
 	text-align: center;
 }
 
 .stat-bars {
 	display: flex;
 	align-items: flex-start;
-	align-self: stretch;
 }
 
 .stat-left {
@@ -219,9 +222,7 @@
 	font-family: "Inter";
 	font-size: 14px;
 	font-weight: 600;
-	line-height: normal;
-	color: var(--dark-violet);
-	align-self: stretch;
+	color: var(--black);
 	margin-bottom: 6px;
 }
 
@@ -294,105 +295,5 @@
 }
 
 
+
 /*—————————————— team card ——————————————*/
-
-.line-up {
-	background-color: var(--white);
-	overflow: hidden;
-	border-radius: 8px;
-	padding: 31px 21px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	border: 1px solid var(--black-2);
-  }
-  .team-line-up {
-	font-family: "Inter";
-	font-size: 16px;
-	font-weight: 500;
-	line-height: normal;
-	color: var(--black);
-	margin-bottom: 16px;
-  }
-  .team-player {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-  }
-  .manager-three {
-	margin-bottom: 16px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	width: 258px;
-  }
-  .manager {
-	font-family: "Inter";
-	font-size: 14px;
-	font-weight: 400;
-	line-height: 17px;
-	color: rgba(164, 164, 164, 1);
-	align-self: stretch;
-	text-align: center;
-	margin-bottom: 16px;
-  }
-  .manager-two {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	align-self: stretch;
-  }
-  .fernando-santos {
-	font-family: "Inter";
-	font-size: 14px;
-	font-weight: 500;
-	line-height: normal;
-	color: var(--black);
-	flex: 1;
-  }
-  .vector-14 {
-	width: 258px;
-	margin-bottom: 16px;
-  }
-  .player-team-two {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-  }
-  .player-team {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 258px;
-  }
-  .player-team:not(:last-of-type) {
-	margin-bottom: 16px;
-  }
-  .initials-left {
-	font-family: "Inter";
-	font-size: 14px;
-	font-weight: 500;
-	line-height: normal;
-	color: var(--forest-green);
-  }
-
-  .player-name-right {
-	flex: 1;
-	text-align: right;
-	font-family: "Inter";
-	font-size: 14px;
-	font-weight: 500;
-	line-height: normal;
-	color: var(--black);
-  }
- 
-  .initals-right {
-	font-family: "Inter";
-	font-size: 14px;
-	font-weight: 500;
-	line-height: normal;
-	color: var(--dark-violet);
-  }
-  
-  
