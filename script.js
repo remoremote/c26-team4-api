@@ -35,3 +35,9 @@ const matchData = {
   
 
 // ——————————*** TEAM OVERVIEW ITEM ***———————————
+
+import { fetcher } from "./JS/fetch.js";
+import { apiKey } from "./JS/API_Key.js";
+
+
+fetcher(apiKey)
