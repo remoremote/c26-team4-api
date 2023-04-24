@@ -6,98 +6,145 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="reset.css">
     <title>Football Dashboard</title>
 </head>
 <body>
-    
-<div class="parent">
-<div class="div1"> </div>
-<div class="div2"><h2>Live Match</h2></div>
-<div class="div3"><h2>Past Matches</h2></div>
-<div class="div4"> </div>
-<div class="div5"> </div>
-<div class="div6"> </div>
 
-<div class="match-card-item"> 
-  
-  <div class="match-card">
-    <div class="match-info">
-      <p class="playtime-label">Playtime</p>
-      <p class="playtime-value" id="playtime-value">62 : 24</p>
+<div class="main">
+<!-- —————————————————————————— -->
+
+<div class="grid-parent">
+<!-- —————————————————————————— -->
+
+  <div class="input-item">
+    <div class="search-input">
+      <input type="text" placeholder="Team name..">
+      <p>search for a team name to display related data</p>
+    </div> 
+  </div>
+<!-- —————————————————————————— -->
+
+  <div class="team-item">
+    <div class="team-info-container"> <!-- team info -->
+      <div class="team-img"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/7/77/FC_Red_Bull_Salzburg_logo.svg/166px-FC_Red_Bull_Salzburg_logo.svg.png?20201211205550" alt=""></div>
+      <div class="team-facts">
+        <h2>Red Bull Salzburg</h2>
+        <p>1933</p>
+        <p>Austria</p>
+      </div>
     </div>
-    <div class="team-and-score">
-      <div class="team-logo-left" id="team-logo-left"></div>
-      <div class="score">
-          <p class="score-value" id="score-value">2 - 2</p></div>
-      <div class="team-logo-right" id="team-logo-right"></div>
+  </div>
+<!-- —————————————————————————— -->
+
+  <div class="stadion-item"> 
+    <div class="stadion-container"> <!-- stadion info -->
+      <div class="stadion-details">
+        <div class="city-and-street">
+          <p id="stadion-city">Wals-Siezenheim</p>
+          <p id="stadion-address">Stadionstrasse 2/3</p>
+        </div>
+        <div class="cap-and-surf">
+          <div class="cs-block"><strong>capacity: </strong><p id="stadion-capacity">31895</p></div>
+          <div class="cs-block"><strong>surface: </strong><p id="stadion-surface">grass</p></div>
+        </div>
+      </div>
+        
+        <div class="stadion-img">
+          <div class="card-badge"> 
+            <span id="stadion-name">Red Bull Arena</span>
+          </div>
+          <img src="https://e6.365dm.de/18/07/2048x1152/skysport_de-red-bull-salzburg_4372078.jpg?bypass-service-worker&20180726140407" alt="stadion image" id="stadion-img">
+        </div>
     </div>
+  </div>
+<!-- —————————————————————————— -->
+
+  <div class="league-item">
+    <div class="league-container"> <!-- league container -->
+      <div>
+        <h2>Red Bull Salzburg</h2>
+        <p>1933</p>
+        <p>Austria</p>
+      </div>
+    </div>
+  </div> <!-- not set up with id for dynamic yet, must gather data to finish design -->
+<!-- —————————————————————————— -->
+
+  <div class="card-matches">
     <div class="stats-container">
-      <div class="stat-group">
-        <p class="stat-label">Shoot on Target</p>
-        <div class="stat-bars">
-          <div class="stat-left">
-            <p class="stat-value" id="left-shots-on-target">7</p>
-            <div class="bar-container-left">
-              <div class="bar-left"></div>
-            </div>
-          </div>
-          <div class="stat-right">
-            <p class="stat-value" id="right-shots-on-target">3</p>
-            <div class="bar-container-right">
-              <div class="bar-right"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="stat-group">
-        <p class="stat-label">Shoot</p>
-        <div class="stat-bars">
-          <div class="stat-left">
-            <p class="stat-value" id="left-shoot">12</p>
-            <div class="bar-container-left-alt">
-              <div class="bar-left-alt"></div>
-            </div>
-          </div>
-          <div class="stat-right">
-            <p class="stat-value" id="right-shoot">7</p>
-            <div class="bar-container-right-alt">
-              <div class="bar-right-alt"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="stat-group">
-        <p class="stat-label">Fouls</p>
-        <div class="stat-bars">
-          <div class="stat-left">
-            <p class="stat-value" id="left-fouls">7</p>
-            <div class="bar-container-left">
-              <div class="bar-left"></div>
-            </div>
-          </div>
-          <div class="stat-right">
-            <p class="stat-value" id="right-fouls">3</p>
-            <div class="bar-container-right">
-              <div class="bar-right"></div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <h2>Matches:</h2>
+      <h1 id="nr-of-matches">6</h1>
+      <hr class="divider-line">
+      <div class="home-away-stats"><strong>Home:</strong><p id="matches-home">2</p></div>
+      <div class="home-away-stats"><strong>Away:</strong><p id="matches-away">3</p></div>
     </div>
-  </div>  
+  </div>
+<!-- —————————————————————————— -->
+
+  <div class="card-goals">
+    <div class="stats-container">
+      <h2>Goals:</h2>
+      <h1 id="nr-of-goals">5</h1>
+      <hr class="divider-line">
+      <div class="home-away-stats"><strong>Home:</strong><p id="goals-home">2</p></div>
+      <div class="home-away-stats"><strong>Away:</strong><p id="goals-away">3</p></div>
+    </div>
+  </div>
+<!-- —————————————————————————— -->
+
+  <div class="card-avg-goals">
+    <div class="stats-container">
+      <h2>&#8709; Goals:</h2>
+      <h1 id="avg-nr-of-goals">0.8</h1>
+      <hr class="divider-line">
+      <div class="home-away-stats"><strong>Home:</strong><p id="avg-goals-home">1.0</p></div>
+      <div class="home-away-stats"><strong>Away:</strong><p id="avg-goals-away">0.7</p></div>
+    </div>
+  </div>
+<!-- —————————————————————————— -->
+ 
+  <div class="card-wins">
+    <div class="stats-container">
+      <h2>Wins:</h2>
+      <h1 id="nr-of-wins">1</h1>
+      <hr class="divider-line">
+      <div class="home-away-stats"><strong>Home:</strong><p id="wins-home">1</p></div>
+      <div class="home-away-stats"><strong>Away:</strong><p id="wins-away">0</p></div>
+    </div>
+  </div>
+<!-- —————————————————————————— -->
+
+  <div class="card-draws">
+    <div class="stats-container">
+      <h2>Draws:</h2>
+      <h1 id="nr-of-draws">3</h1>
+      <hr class="divider-line">
+      <div class="home-away-stats"><strong>Home:</strong><p id="draws-home">1</p></div>
+      <div class="home-away-stats"><strong>Away:</strong><p id="draws-away">2</p></div>
+    </div>
+  </div>
+<!-- —————————————————————————— -->
+
+  <div class="card-losses">
+    <div class="stats-container">
+      <h2>Losses:</h2>
+      <h1 id="nr-of-losses">2</h1>
+      <hr class="divider-line">
+      <div class="home-away-stats"><strong>Home:</strong><p id="losses-home">1</p></div>
+      <div class="home-away-stats"><strong>Away:</strong><p id="losses-away">1</p></div>
+    </div>
+  </div>
+<!-- —————————————————————————— -->
 
 </div>
 
-<div class="team-card-item"></div>
-
-<div class="div9"><h2>Upcoming Matches</h2></div>
-<div class="div10"> </div>
-<div class="div11"> </div>
-<div class="div12"> </div>
 </div>
+
+</div>
+
 
 </body>
 <script type="module" src="script.js"></script>
