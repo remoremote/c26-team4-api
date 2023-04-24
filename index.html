@@ -13,24 +13,29 @@
 </head>
 <body>
     <!-- xy -->
-<!--Main Conainter-->
-<div class="main"> <!--input, team info, league, cards-->
 
-  <div class="search-input">
-    <input type="text" placeholder="Team name..">
-  </div> <!-- input container -->
-
+<div class="grid-parent">
 <!-- —————————————————————————— -->
 
-  <div class="team-stadion-container"> <!-- team and stadion container -->
-    
+  <div class="input-item">
+    <div class="search-input">
+      <input type="text" placeholder="Team name..">
+      <p>search for a team name to display related data</p>
+    </div> 
+  </div>
+<!-- —————————————————————————— -->
+
+  <div class="team-item">
     <div class="team-info-container"> <!-- team info -->
       <div class="team-img"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/7/77/FC_Red_Bull_Salzburg_logo.svg/166px-FC_Red_Bull_Salzburg_logo.svg.png?20201211205550" alt=""></div>
       <h2>Red Bull Salzburg</h2>
       <p>1933</p>
       <p>Austria</p>
     </div>
+  </div>
+<!-- —————————————————————————— -->
 
+  <div class="stadion-item"> 
     <div class="stadion-container"> <!-- stadion info -->
       <div class="stadion-details">
         <div class="city-and-street">
@@ -44,17 +49,45 @@
       </div>
         <div class="stadion-img"><img src="https://e6.365dm.de/18/07/2048x1152/skysport_de-red-bull-salzburg_4372078.jpg?bypass-service-worker&20180726140407" alt=""></div>
     </div>
-
   </div>
-
 <!-- —————————————————————————— -->
 
-  <div></div> <!-- league container -->
-
+  <div class="league-item">
+    <div class="league-container"> <!-- league container -->
+      <div>
+        <h2>Red Bull Salzburg</h2>
+        <p>1933</p>
+        <p>Austria</p>
+      </div>
+    </div>
+  </div>
 <!-- —————————————————————————— -->
 
-  <div></div> <!-- card grid container -->
+  <div class="card-matches">
+    <div class="stats-container">
+      <h2>Matches:</h2>
+      <p>6</p>
+      <hr>
+      <div class="home-away-stats"><strong>Home:</strong><p>5</p></div>
+      <div class="home-away-stats"><strong>Away:</strong><p>5</p></div>
+    </div>
+  </div>
+<!-- —————————————————————————— -->
+
+  <div class="div6"> </div>
+  <div class="div7"> </div>
+  <div class="div8"> </div>
+  <div class="div9"> </div>
+  <div class="div10"> </div>
 </div>
+
+<!-- —————————————————————————— --> 
+<!-- —————————————————————————— -->
+<!-- —————————————————————————— -->
+<!-- —————————————————————————— -->
+  
+</div>
+
 
 </body>
 <script src="script.js"></script>
