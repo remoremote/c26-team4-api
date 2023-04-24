@@ -6,13 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="reset.css">
     <title>Football Dashboard</title>
 </head>
 <body>
-    <!-- xy -->
+
+<div class="main">
+<!-- —————————————————————————— -->
 
 <div class="grid-parent">
 <!-- —————————————————————————— -->
@@ -28,9 +30,11 @@
   <div class="team-item">
     <div class="team-info-container"> <!-- team info -->
       <div class="team-img"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/7/77/FC_Red_Bull_Salzburg_logo.svg/166px-FC_Red_Bull_Salzburg_logo.svg.png?20201211205550" alt=""></div>
-      <h2>Red Bull Salzburg</h2>
-      <p>1933</p>
-      <p>Austria</p>
+      <div class="team-facts">
+        <h2>Red Bull Salzburg</h2>
+        <p>1933</p>
+        <p>Austria</p>
+      </div>
     </div>
   </div>
 <!-- —————————————————————————— -->
@@ -39,15 +43,15 @@
     <div class="stadion-container"> <!-- stadion info -->
       <div class="stadion-details">
         <div class="city-and-street">
-          <p>Wals-Siezenheim</p>
-          <p>Stadionstrasse 2/3</p>
+          <p id="stadion-city">Wals-Siezenheim</p>
+          <p id="stadion-address">Stadionstrasse 2/3</p>
         </div>
         <div class="cap-and-surf">
-          <p><strong>capacity: </strong>31895</p>
-          <p><strong>surface: </strong>grass</p>
+          <div class="cs-block"><strong>capacity: </strong><p id="stadion-capacity">31895</p></div>
+          <div class="cs-block"><strong>surface: </strong><p id="stadion-surface">grass</p></div>
         </div>
       </div>
-        <div class="stadion-img"><img src="https://e6.365dm.de/18/07/2048x1152/skysport_de-red-bull-salzburg_4372078.jpg?bypass-service-worker&20180726140407" alt=""></div>
+        <div class="stadion-img"><img src="https://e6.365dm.de/18/07/2048x1152/skysport_de-red-bull-salzburg_4372078.jpg?bypass-service-worker&20180726140407" alt="stadion image" id="stadion-img"></div>
     </div>
   </div>
 <!-- —————————————————————————— -->
@@ -60,32 +64,79 @@
         <p>Austria</p>
       </div>
     </div>
-  </div>
+  </div> <!-- not set up with id for dynamic yet, must gather data to finish design -->
 <!-- —————————————————————————— -->
 
   <div class="card-matches">
     <div class="stats-container">
       <h2>Matches:</h2>
-      <p>6</p>
-      <hr>
-      <div class="home-away-stats"><strong>Home:</strong><p>5</p></div>
-      <div class="home-away-stats"><strong>Away:</strong><p>5</p></div>
+      <h1 id="nr-of-matches">6</h1>
+      <hr class="divider-line">
+      <div class="home-away-stats"><strong>Home:</strong><p id="matches-home">2</p></div>
+      <div class="home-away-stats"><strong>Away:</strong><p id="matches-away">3</p></div>
     </div>
   </div>
 <!-- —————————————————————————— -->
 
-  <div class="div6"> </div>
-  <div class="div7"> </div>
-  <div class="div8"> </div>
-  <div class="div9"> </div>
-  <div class="div10"> </div>
+  <div class="card-goals">
+    <div class="stats-container">
+      <h2>Goals:</h2>
+      <h1 id="nr-of-goals">5</h1>
+      <hr class="divider-line">
+      <div class="home-away-stats"><strong>Home:</strong><p id="goals-home">2</p></div>
+      <div class="home-away-stats"><strong>Away:</strong><p id="goals-away">3</p></div>
+    </div>
+  </div>
+<!-- —————————————————————————— -->
+
+  <div class="card-avg-goals">
+    <div class="stats-container">
+      <h2>&#8709; Goals:</h2>
+      <h1 id="avg-nr-of-goals">0.8</h1>
+      <hr class="divider-line">
+      <div class="home-away-stats"><strong>Home:</strong><p id="avg-goals-home">1.0</p></div>
+      <div class="home-away-stats"><strong>Away:</strong><p id="avg-goals-away">0.7</p></div>
+    </div>
+  </div>
+<!-- —————————————————————————— -->
+ 
+  <div class="card-wins">
+    <div class="stats-container">
+      <h2>Wins:</h2>
+      <h1 id="nr-of-wins">1</h1>
+      <hr class="divider-line">
+      <div class="home-away-stats"><strong>Home:</strong><p id="wins-home">1</p></div>
+      <div class="home-away-stats"><strong>Away:</strong><p id="wins-away">0</p></div>
+    </div>
+  </div>
+<!-- —————————————————————————— -->
+
+  <div class="card-draws">
+    <div class="stats-container">
+      <h2>Draws:</h2>
+      <h1 id="nr-of-draws">3</h1>
+      <hr class="divider-line">
+      <div class="home-away-stats"><strong>Home:</strong><p id="draws-home">1</p></div>
+      <div class="home-away-stats"><strong>Away:</strong><p id="draws-away">2</p></div>
+    </div>
+  </div>
+<!-- —————————————————————————— -->
+
+  <div class="card-losses">
+    <div class="stats-container">
+      <h2>Losses:</h2>
+      <h1 id="nr-of-losses">2</h1>
+      <hr class="divider-line">
+      <div class="home-away-stats"><strong>Home:</strong><p id="losses-home">1</p></div>
+      <div class="home-away-stats"><strong>Away:</strong><p id="losses-away">1</p></div>
+    </div>
+  </div>
+<!-- —————————————————————————— -->
+
 </div>
 
-<!-- —————————————————————————— --> 
-<!-- —————————————————————————— -->
-<!-- —————————————————————————— -->
-<!-- —————————————————————————— -->
-  
+</div>
+
 </div>
 
 

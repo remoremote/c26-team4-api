@@ -35,26 +35,43 @@
 
 
 /* ——————— initial setup ————————— */
+* {
+  box-sizing: border-box;
+}
+
 p {
   font-family: var(--font-family-primary);
+  color: var(--color-main);
 }
 
 strong {
-  font-weight: bold;
+  font-family: var(--font-family-primary);
+  font-weight: 700;
 }
 
 h1 {
   font-family: var(--font-family-primary);
+  font-size: var(--font-size-h1);
 }
 
 body {
   background-color: var(--color-main);
+  font-family: var(--font-family-primary);
 }
 
+
+/* ——————— main setup ————————— */
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
 
 /* ——————— grid setup ————————— */
 .grid-parent {
   max-width: 80%;
+  min-width: 700px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -63,27 +80,43 @@ body {
   }
   
   .input-item { grid-area: 1 / 1 / 2 / 7; }
-  .team-item { 
-    grid-area: 2 / 1 / 3 / 4; }
+  .team-item { grid-area: 2 / 1 / 3 / 4; }
   .stadion-item { grid-area: 2 / 4 / 3 / 7; }
   .league-item { grid-area: 3 / 1 / 4 / 7; }
-
   .card-matches { grid-area: 4 / 1 / 5 / 3; }
-  .div6 { grid-area: 4 / 3 / 5 / 5; }
-  .div7 { grid-area: 4 / 5 / 5 / 7; }
-  .div8 { grid-area: 5 / 1 / 6 / 3; }
-  .div9 { grid-area: 5 / 3 / 6 / 5; }
-  .div10 { grid-area: 5 / 5 / 6 / 7; }
+  .card-goals { grid-area: 4 / 3 / 5 / 5; }
+  .card-avg-goals { grid-area: 4 / 5 / 5 / 7; }
+  .card-wins { grid-area: 5 / 1 / 6 / 3; }
+  .card-draws { grid-area: 5 / 3 / 6 / 5; }
+  .card-losses { grid-area: 5 / 5 / 6 / 7; }
 
 /* ——————— input container ————————— */
 .search-input {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
-  margin-bottom: var(--space-24);
+  margin-bottom: -6px;
+}
+
+.search-input input[type="text"] {
+  width: 100%;
+  padding: var(--space-16);
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  font-size: var(--font-size-P);
+  box-sizing: border-box;
+}
+
+.search-input p {
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--color-card-bg);
 }
 
 
-/* ——————— team / stadion section ————————— */
+/* ——————— team section ————————— */
 
 .team-info-container {
   display: flex;
@@ -92,6 +125,19 @@ body {
   background-color: var(--color-card-bg);
   padding: var(--space-24);
   border-radius: var(--space-24);
+  gap: var(--space-16);
+}
+
+.team-facts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.team-facts h2 {
+  font-size: var(--font-size-h2);
+  font-weight: 700;
 }
 
 .team-img img {
@@ -100,6 +146,8 @@ body {
   border-radius: 128px;
   padding-bottom: var(--space-16);
 }
+
+/* ——————— stadion section ————————— */
 
 .stadion-container {
   background-color: var(--color-card-bg);
@@ -132,6 +180,14 @@ body {
   transform: scale(1);
 }
 
+.cs-block {
+  display: flex;
+}
+
+.cs-block strong {
+  margin-right: 6px;
+}
+
 /* ——————— league section ————————— */
 
 .league-container {
@@ -140,14 +196,47 @@ body {
   border-radius: var(--space-24);
 }
 
-/* ——————— grid section ————————— */
+/* ——————— stats section ————————— */
 
 .stats-container {
+  display: flex;
+  flex-direction: column;
   background-color: var(--color-card-bg);
   padding: var(--space-24);
   border-radius: var(--space-24);
+  gap: var(--space-8);
+}
+
+.stats-container h2 {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-P);
+  font-weight: 700;
+  color: var(--color-secondery);
+}
+
+.stats-container h1 {
+  font-size: var(--space-64);
+  font-weight: 700;
+  color: var(--color-primary);
 }
 
 .home-away-stats {
   display: flex;
+}
+
+.home-away-stats strong {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-P);
+  font-weight: 700;
+  padding-right: 6px;
+  color: var(--color-secondery);
+}
+
+.home-away-stats p {
+  color: var(--color-primary);
+}
+
+.divider-line {
+  border-top: 3px solid var(--color-main);
+  width: 100%;
 }
