@@ -197,7 +197,7 @@ body {
   border-radius: var(--space-24);
   font-size: var(--font-size-P);
   position: absolute; 
-  top: 12px; /* Adjust the value as needed */
+  top: 12px; 
   right: 12px; 
   z-index: 999;
 }
