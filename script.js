@@ -18,20 +18,20 @@ const matchData = {
   };
   
   // Update playtime and score
-  document.getElementById('playtime-value').textContent = matchData.playtime;
-  document.getElementById('score-value').textContent = matchData.score;
+  // document.getElementById('playtime-value').textContent = matchData.playtime;
+  // document.getElementById('score-value').textContent = matchData.score;
   
-  // Update stats
-  document.getElementById('left-shots-on-target').textContent =
-    matchData.stats.left.shotsOnTarget;
-  document.getElementById('right-shots-on-target').textContent =
-    matchData.stats.right.shotsOnTarget;
+  // // Update stats
+  // document.getElementById('left-shots-on-target').textContent =
+  //   matchData.stats.left.shotsOnTarget;
+  // document.getElementById('right-shots-on-target').textContent =
+  //   matchData.stats.right.shotsOnTarget;
   
-  document.getElementById('left-shoot').textContent = matchData.stats.left.shoot;
-  document.getElementById('right-shoot').textContent = matchData.stats.right.shoot;
+  // document.getElementById('left-shoot').textContent = matchData.stats.left.shoot;
+  // document.getElementById('right-shoot').textContent = matchData.stats.right.shoot;
   
-  document.getElementById('left-fouls').textContent = matchData.stats.left.fouls;
-  document.getElementById('right-fouls').textContent = matchData.stats.right.fouls;
+  // document.getElementById('left-fouls').textContent = matchData.stats.left.fouls;
+  // document.getElementById('right-fouls').textContent = matchData.stats.right.fouls;
   
 
 // ——————————*** TEAM OVERVIEW ITEM ***———————————
