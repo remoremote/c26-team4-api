@@ -172,6 +172,8 @@ body {
   overflow: hidden;
   border-radius: var(--space-16);
   max-height: 150px;
+  position: relative;
+
 }
 
 .stadion-img img {
@@ -186,6 +188,18 @@ body {
 
 .cs-block strong {
   margin-right: 6px;
+}
+
+.card-badge {
+  background-color: var(--color-card-bg);
+  color: var(--text-primary);
+  padding: var(--space-8) var(--space-16);
+  border-radius: var(--space-24);
+  font-size: var(--font-size-P);
+  position: absolute; 
+  top: 12px; /* Adjust the value as needed */
+  right: 12px; 
+  z-index: 999;
 }
 
 /* ——————— league section ————————— */
