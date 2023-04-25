@@ -210,6 +210,19 @@ body {
   border-radius: var(--space-24);
 }
 
+.league-info {
+  display: flex;
+  justify-content: center;
+}
+
+.league-info h2 {
+  font-weight: 700;
+}
+
+.line-divider {
+  padding: 0 24px;
+}
+
 /* ——————— stats section ————————— */
 
 .stats-container {
