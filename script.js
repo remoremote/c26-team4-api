@@ -1,5 +1,5 @@
- // Constants
- const teamInfo = {
+// Constants
+const teamInfo = {
   img: "https://upload.wikimedia.org/wikipedia/en/thumb/7/77/FC_Red_Bull_Salzburg_logo.svg/166px-FC_Red_Bull_Salzburg_logo.svg.png?20201211205550",
   name: "Red Bull Salzburg",
   established: "1933",
@@ -85,57 +85,47 @@ document.addEventListener("DOMContentLoaded", () => {
   updateDOM();
 });
 
-
-
-import { fetcher } from "./JS/fetch.js";
+// Fetcher function for API key
 import { apiKey } from "./JS/API_Key.js";
 
+document.querySelector(".search-input input").addEventListener("keyup", (event) => {
+  if (event.key === "Enter") {
+    const searchTerm = event.target.value.trim();
+    if (searchTerm) {
+      searchTeam(searchTerm);
+    }
+  }
+});
 
-fetcher(apiKey)
+async function searchTeam(teamName) {
+  const response = await fetch(`https://v3.football.api-sports.io/teams?search=${teamName}`, {
+    "method": "GET",
+    "headers": {
+      "x-rapidapi-host": "v3.football.api-sports.io",
+      "x-rapidapi-key": apiKey
+    }
+  });
 
+  const data = await response.json();
+  if (data && data.results > 0) {
+    const team = data.response[0].team;
+    const venue = data.response[0].venue;
+    teamInfo.img = team.logo;
+    teamInfo.name = team.name;
+    teamInfo.established = team.founded;
+    teamInfo.country = team.country;
 
+    stadionInfo.name = venue.name;
+    stadionInfo.city = venue.city;
+    stadionInfo.address = venue.address;
+    stadionInfo.capacity = venue.capacity;
+    stadionInfo.surface = venue.surface;
+    stadionInfo.img = ""; // The API doesn't provide a stadium image, so you'll need to find another source or leave it empty
 
+    // Fetch and update league and matchStats data here (similar to the example above)
 
-
-
-
-
-
-// ——————————*** MATCH CARD ITEM ***———————————
-// Dynamic data
-// const matchData = {
-//     playtime: '62 : 24',
-//     score: '2 - 2',
-//     stats: {
-//       left: {
-//         shotsOnTarget: 7,
-//         shoot: 12,
-//         fouls: 7,
-//       },
-//       right: {
-//         shotsOnTarget: 3,
-//         shoot: 7,
-//         fouls: 3,
-//       },
-//     },
-//   };
-  
-  // Update playtime and score
-  // document.getElementById('playtime-value').textContent = matchData.playtime;
-  // document.getElementById('score-value').textContent = matchData.score;
-  
-  // // Update stats
-  // document.getElementById('left-shots-on-target').textContent =
-  //   matchData.stats.left.shotsOnTarget;
-  // document.getElementById('right-shots-on-target').textContent =
-  //   matchData.stats.right.shotsOnTarget;
-  
-  // document.getElementById('left-shoot').textContent = matchData.stats.left.shoot;
-  // document.getElementById('right-shoot').textContent = matchData.stats.right.shoot;
-  
-  // document.getElementById('left-fouls').textContent = matchData.stats.left.fouls;
-  // document.getElementById('right-fouls').textContent = matchData.stats.right.fouls;
-  
-
-
- 
+    updateDOM();
+  } else {
+    alert("No team found. Please try again.");
+  }
+}
