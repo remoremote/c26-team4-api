@@ -100,4 +100,17 @@ async function fetchLeagueAndStats(teamId, apiKey) {
       }
     }
   });
+
+  const teamStatsResponse = await fetch(teamStatsUrl, {
+    method: 'GET',
+    headers: {
+      'x-rapidapi-host': 'v3.football.api-sports.io',
+      'x-rapidapi-key': apiKey
+    },
+    // Disable SSL certificate validation
+    agent: new https.Agent({
+      rejectUnauthorized: false
+    })
+  });
+  
   
