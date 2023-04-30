@@ -1,5 +1,5 @@
 async function fetchLeagueAndStats(teamId, apiKey) {
-    const teamStatsUrl = `https://v3.football.api-sports.io/teams/${teamId}/statistics`;
+    const teamStatsUrl = `${window.location.origin}/api/teams/${teamId}/statistics`;
     const teamStatsResponse = await fetch(teamStatsUrl, {
       method: 'GET',
       headers: {
@@ -11,7 +11,7 @@ async function fetchLeagueAndStats(teamId, apiKey) {
     const stats = teamStatsData.data;
   
     const leagueId = stats.league.id;
-    const leagueUrl = `https://v3.football.api-sports.io/leagues/${leagueId}`;
+    const leagueUrl = `${window.location.origin}/api/leagues/${leagueId}`;
     const leagueResponse = await fetch(leagueUrl, {
       method: 'GET',
       headers: {
@@ -57,7 +57,7 @@ async function fetchLeagueAndStats(teamId, apiKey) {
     const apiKey = 'fa00ed0b5emsh0cfc2bed1d96245p19e0d1jsna00df65a08d3';
   
     if (teamName) {
-      const searchUrl = `https://v3.football.api-sports.io/teams?search=${teamName}`;
+      const searchUrl = `${window.location.origin}/api/teams?search=${teamName}`;
       const teamResponse = await fetch(searchUrl, {
         method: 'GET',
         headers: {
@@ -70,7 +70,7 @@ async function fetchLeagueAndStats(teamId, apiKey) {
   
       if (teamData && teamData.data.length > 0) {
         const team = teamData.data[0];
-        const venueUrl = `https://v3.football.api-sports.io/venues?id=${team.venue.id}`;
+        const venueUrl = `${window.location.origin}/api/venues?id=${team.venue.id}`;
         const venueResponse = await fetch(venueUrl, {
           method: 'GET',
           headers: {

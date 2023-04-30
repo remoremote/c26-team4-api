@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Fetcher function for API key
-import { apiKey } from "./JS/API_Key.js";
+import { apiKey } from "../JS/API_Key.js";
 
 document.querySelector(".search-input input").addEventListener("keyup", (event) => {
   if (event.key === "Enter") {
