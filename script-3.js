@@ -1,5 +1,6 @@
+const apiUrl = 'https://v3.football.api-sports.io';
+
 async function fetchLeagueAndStats(teamId, apiKey) {
-    const apiUrl = 'https://v3.football.api-sports.io';
     const teamStatsUrl = `${apiUrl}/api/teams/${teamId}/statistics`;
     const teamStatsResponse = await fetch(teamStatsUrl, {
       method: 'GET',
