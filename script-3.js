@@ -28,33 +28,34 @@ async function fetchLeagueAndStats(teamId, apiKey) {
     const leagueData = await leagueResponse.json();
     const league = leagueData.data;
   
-    document.getElementById('league-name').innerText = league.name;
-    document.getElementById('league-year').innerText = league.season;
-    document.getElementById('league-country').innerText = league.country;
-  
-    document.getElementById('nr-of-matches').innerText = stats.fixtures.played.total;
-    document.getElementById('matches-home').innerText = stats.fixtures.played.home;
-    document.getElementById('matches-away').innerText = stats.fixtures.played.away;
-  
-    document.getElementById('nr-of-goals').innerText = stats.goals.total;
-    document.getElementById('goals-home').innerText = stats.goals.home;
-    document.getElementById('goals-away').innerText = stats.goals.away;
-  
-    document.getElementById('avg-nr-of-goals').innerText = (stats.goals.total / stats.fixtures.played.total).toFixed(1);
-    document.getElementById('avg-goals-home').innerText = (stats.goals.home / stats.fixtures.played.home).toFixed(1);
-    document.getElementById('avg-goals-away').innerText = (stats.goals.away / stats.fixtures.played.away).toFixed(1);
-  
-    document.getElementById('nr-of-wins').innerText = stats.fixtures.wins.total;
-    document.getElementById('wins-home').innerText = stats.fixtures.wins.home;
-    document.getElementById('wins-away').innerText = stats.fixtures.wins.away;
-  
-    document.getElementById('nr-of-draws').innerText = stats.fixtures.draws.total;
-    document.getElementById('draws-home').innerText = stats.fixtures.draws.home;
-    document.getElementById('draws-away').innerText = stats.fixtures.draws.away;
-  
-    document.getElementById('nr-of-losses').innerText = stats.fixtures.loses.total;
-    document.getElementById('losses-home').innerText = stats.fixtures.loses.home;
-    document.getElementById('losses-away').innerText = stats.fixtures.loses.away;
+    document.querySelector('#league-name').innerText = league.name;
+document.querySelector('#league-year').innerText = league.season;
+document.querySelector('#league-country').innerText = league.country;
+
+document.querySelector('#nr-of-matches').innerText = stats.fixtures.played.total;
+document.querySelector('#matches-home').innerText = stats.fixtures.played.home;
+document.querySelector('#matches-away').innerText = stats.fixtures.played.away;
+
+document.querySelector('#nr-of-goals').innerText = stats.goals.total;
+document.querySelector('#goals-home').innerText = stats.goals.home;
+document.querySelector('#goals-away').innerText = stats.goals.away;
+
+document.querySelector('#avg-nr-of-goals').innerText = (stats.goals.total / stats.fixtures.played.total).toFixed(1);
+document.querySelector('#avg-goals-home').innerText = (stats.goals.home / stats.fixtures.played.home).toFixed(1);
+document.querySelector('#avg-goals-away').innerText = (stats.goals.away / stats.fixtures.played.away).toFixed(1);
+
+document.querySelector('#nr-of-wins').innerText = stats.fixtures.wins.total;
+document.querySelector('#wins-home').innerText = stats.fixtures.wins.home;
+document.querySelector('#wins-away').innerText = stats.fixtures.wins.away;
+
+document.querySelector('#nr-of-draws').innerText = stats.fixtures.draws.total;
+document.querySelector('#draws-home').innerText = stats.fixtures.draws.home;
+document.querySelector('#draws-away').innerText = stats.fixtures.draws.away;
+
+document.querySelector('#nr-of-losses').innerText = stats.fixtures.loses.total;
+document.querySelector('#losses-home').innerText = stats.fixtures.loses.home;
+document.querySelector('#losses-away').innerText = stats.fixtures.loses.away;
+
   }
   
   document.getElementById('search-button').addEventListener('click', async () => {
