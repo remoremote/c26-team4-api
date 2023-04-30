@@ -1,5 +1,6 @@
 async function fetchLeagueAndStats(teamId, apiKey) {
-    const teamStatsUrl = `${window.location.origin}/api/teams/${teamId}/statistics`;
+    const apiUrl = 'https://v3.football.api-sports.io';
+    const teamStatsUrl = `${apiUrl}/api/teams/${teamId}/statistics`;
     const teamStatsResponse = await fetch(teamStatsUrl, {
       method: 'GET',
       headers: {
@@ -11,7 +12,7 @@ async function fetchLeagueAndStats(teamId, apiKey) {
     const stats = teamStatsData.data;
   
     const leagueId = stats.league.id;
-    const leagueUrl = `${window.location.origin}/api/leagues/${leagueId}`;
+    const leagueUrl = `${apiUrl}/api/leagues/${leagueId}`;
     const leagueResponse = await fetch(leagueUrl, {
       method: 'GET',
       headers: {
@@ -57,7 +58,7 @@ async function fetchLeagueAndStats(teamId, apiKey) {
     const apiKey = 'fa00ed0b5emsh0cfc2bed1d96245p19e0d1jsna00df65a08d3';
   
     if (teamName) {
-      const searchUrl = `${window.location.origin}/api/teams?search=${teamName}`;
+      const searchUrl = `${apiUrl}/api/teams?search=${teamName}`;
       const teamResponse = await fetch(searchUrl, {
         method: 'GET',
         headers: {
@@ -70,7 +71,7 @@ async function fetchLeagueAndStats(teamId, apiKey) {
   
       if (teamData && teamData.data.length > 0) {
         const team = teamData.data[0];
-        const venueUrl = `${window.location.origin}/api/venues?id=${team.venue.id}`;
+        const venueUrl = `${apiUrl}/api/venues?id=${team.venue.id}`;
         const venueResponse = await fetch(venueUrl, {
           method: 'GET',
           headers: {
@@ -98,18 +99,4 @@ async function fetchLeagueAndStats(teamId, apiKey) {
       }
     }
   });
-  
-
-  fetch(searchUrl, {
-    method: 'GET',
-    headers: {
-      'x-rapidapi-host': 'v3.football.api-sports.io',
-      'x-rapidapi-key': apiKey
-    }
-  })
-  .then(response => response.json())
-  .then(teamData => {
-    // Rest of your teamData handling code
-  })
-  .catch(error => console.error("Error fetching team data:", error));
   
