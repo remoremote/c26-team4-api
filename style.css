@@ -289,3 +289,93 @@ button:hover {
   border-top: 3px solid var(--color-main);
   width: 100%;
 }
+
+
+
+
+  /* ——————— media queries setup ————————— */
+
+
+@media only screen and (max-width: 768px) {
+  .main {
+    margin-top: 24px;
+    padding: 0 12px;
+    height: auto;
+  }
+
+  body {
+    margin-top: 80px; /* set a negative margin equal to the height of the header */
+  }
+  /* ——————— grid setup ————————— */
+  .grid-parent {
+    max-width: 100%;
+    min-width: 0;
+    grid-template-columns: repeat(2, 1fr);
+    grid-row-gap: 12px;
+    grid-column-gap: 12px;
+  }
+  
+  .input-item { grid-area: 1 / 1 / 2 / 3; }
+  .team-item { grid-area: 2 / 1 / 3 / 2; }
+  .stadion-item { grid-area: 2 / 2 / 3 / 3; }
+  .league-item { grid-area: 3 / 1 / 4 / 3; }
+  .card-matches { grid-area: 4 / 1 / 5 / 2; }
+  .card-goals { grid-area: 4 / 2 / 5 / 3; }
+  .card-avg-goals { grid-area: 5 / 1 / 6 / 2; }
+  .card-wins { grid-area: 5 / 2 / 6 / 3; }
+  .card-draws { grid-area: 6 / 1 / 7 / 2; }
+  .card-losses { grid-area: 6 / 2 / 7 / 3; }
+  
+  /* ——————— input container ————————— */
+  .search-input {
+    margin-bottom: 0;
+  }
+  
+  button {
+    border-radius: 0 20px 20px 0;
+    border-left: none;
+  }
+  
+  /* ——————— team section ————————— */
+  .team-info-container {
+    padding: var(--space-16);
+    gap: var(--space-8);
+  }
+  
+  .team-img img {
+    width: var(--space-64);
+    height: auto;
+    border-radius: var(--space-64);
+  }
+  
+  /* ——————— stadion section ————————— */
+  .stadion-details {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .city-and-street {
+    padding-bottom: var(--space-8);
+  }
+  
+  .stadion-img {
+    max-height: 200px;
+    margin-bottom: var(--space-8);
+  }
+  
+  /* ——————— league section ————————— */
+  .league-info {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-8);
+  }
+  
+  .line-divider {
+    display: none;
+  }
+  
+  /* ——————— stats section ————————— */
+  .stats-container h1 {
+    font-size: var(--space-48);
+  }
+}
