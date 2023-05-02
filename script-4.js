@@ -3,13 +3,21 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const apiKey = 'fa00ed0b5emsh0cfc2bed1d96245p19e0d1jsna00df65a08d3';
 
     async function fetchData(url, options) {
-        const response = await fetch(url, options);
+        try {
+            const response = await fetch(url, options);
+            
+            if (!response.ok) {
+                console.error('API error:', await response.text());
+                throw new Error(`HTTP error ${response.status}`);
+            }
 
-        if (!response.ok) {
-            throw new Error(`HTTP error ${response.status}`);
+            return await response.json();
+        } catch (error) {
+            console.error('Network error:', error);
+            // You can show a user-friendly message here, e.g.:
+            alert('There was an issue fetching the data. Please try again later.');
+            throw error;
         }
-
-        return await response.json();
     }
 
     async function getTeamIdByName(apiKey, teamName) {
@@ -134,24 +142,20 @@ document.addEventListener('DOMContentLoaded', (event) => {
         document.getElementById('wins-away').innerText = stats[0].league.wins.away;
     
         // Update loss statistics
-        document.getElementById('nr-of-losses').innerText = stats.loses.total;
-        document.getElementById('losses-home').innerText = stats.loses.home;
-        document.getElementById('losses-away').innerText = stats.loses.away;
+        document.getElementById('nr-of-losses').innerText = stats[0].league.loses.total;
+        document.getElementById('losses-home').innerText = stats[0].league.loses.home;
+        document.getElementById('losses-away').innerText = stats[0].league.loses.away;
 
         // Update clean sheet statistics
-        document.getElementById('clean-sheet-home').innerText = stats.clean_sheet.home;
-        document.getElementById('clean-sheet-away').innerText = stats.clean_sheet.away;
-        document.getElementById('clean-sheet-total').innerText = stats.clean_sheet.total;
+        document.getElementById('clean-sheet-home').innerText = stats[0].clean_sheet.home;
+        document.getElementById('clean-sheet-away').innerText = stats[0].clean_sheet.away;
+        document.getElementById('clean-sheet-total').innerText = stats[0].clean_sheet.total;
 
         // Update failed to score statistics
-        document.getElementById('failed-to-score-home').innerText = stats.failed_to_score.home;
-        document.getElementById('failed-to-score-away').innerText = stats.failed_to_score.away;
-        document.getElementById('failed-to-score-total').innerText = stats.failed_to_score.total;
+        document.getElementById('failed-to-score-home').innerText = stats[0].failed_to_score.home;
+        document.getElementById('failed-to-score-away').innerText = stats[0].failed_to_score.away;
+        document.getElementById('failed-to-score-total').innerText = stats[0].failed_to_score.total;
     
-        // Update failed to score statistics
-        document.getElementById('failed-to-score-home').innerText = failed_to_score.home;
-        document.getElementById('failed-to-score-away').innerText = failed_to_score.away;
-        document.getElementById('failed-to-score-total').innerText = failed_to_score.total;
     }
     
     const searchButton = document.getElementById('search-button');
@@ -165,3 +169,4 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
     
 });
+
