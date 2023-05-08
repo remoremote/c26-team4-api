@@ -118,48 +118,57 @@ document.addEventListener('DOMContentLoaded', (event) => {
     
         // Update league information
         document.getElementById('league-name').innerText = league.name;
-        document.getElementById('league-year').innerText = stats[0].fixture.season.year;
+        document.getElementById('league-year').innerText = league.currentSeason.year;
         document.getElementById('league-country').innerText = league.country;
     
         // Update match statistics
-        document.getElementById('nr-of-matches').innerText = stats[0].league.fixtures.played.total;
-        document.getElementById('matches-home').innerText = stats[0].league.fixtures.played.home;
-        document.getElementById('matches-away').innerText = stats[0].league.fixtures.played.away;
+        document.getElementById('nr-of-matches').innerText = stats.fixtures.played.total;
+        document.getElementById('matches-home').innerText = stats.fixtures.played.home;
+        document.getElementById('matches-away').innerText = stats.fixtures.played.away;
     
         // Update goal statistics
-        document.getElementById('nr-of-goals').innerText = stats[0].goals.for.total;
-        document.getElementById('goals-home').innerText = stats[0].goals.for.home;
-        document.getElementById('goals-away').innerText = stats[0].goals.for.away;
+        document.getElementById('nr-of-goals').innerText = stats.goals.for.total;
+        document.getElementById('goals-home').innerText = stats.goals.for.home;
+        document.getElementById('goals-away').innerText = stats.goals.for.away;
     
         // Update average goal statistics
-        document.getElementById('avg-nr-of-goals').innerText = stats[0].goals.for.average.total;
-        document.getElementById('avg-goals-home').innerText = stats[0].goals.for.average.home;
-        document.getElementById('avg-goals-away').innerText = stats[0].goals.for.average.away;
+        document.getElementById('avg-nr-of-goals').innerText = stats.goals.for.average.total;
+        document.getElementById('avg-goals-home').innerText = stats.goals.for.average.home;
+        document.getElementById('avg-goals-away').innerText = stats.goals.for.average.away;
     
         // Update win statistics
-        document.getElementById('nr-of-wins').innerText = stats[0].league.wins.total;
-        document.getElementById('wins-home').innerText = stats[0].league.wins.home;
-        document.getElementById('wins-away').innerText = stats[0].league.wins.away;
+        document.getElementById('nr-of-wins').innerText = stats.wins.total;
+        document.getElementById('wins-home').innerText = stats.wins.home;
+        document.getElementById('wins-away').innerText = stats.wins.away;
+    
+        // Update draw statistics
+        document.getElementById('nr-of-draws').innerText = stats.draws.total;
+        document.getElementById('draws-home').innerText = stats.draws.home;
+        document.getElementById('draws-away').innerText = stats.draws.away;
     
         // Update loss statistics
-        document.getElementById('nr-of-losses').innerText = stats[0].league.loses.total;
-        document.getElementById('losses-home').innerText = stats[0].league.loses.home;
-        document.getElementById('losses-away').innerText = stats[0].league.loses.away;
-
+        document.getElementById('nr-of-losses').innerText = stats.loses.total;
+        document.getElementById('losses-home').innerText = stats.loses.home;
+        document.getElementById('losses-away').innerText = stats.loses.away;
+    
         // Update clean sheet statistics
-        document.getElementById('clean-sheet-home').innerText = stats[0].clean_sheet.home;
-        document.getElementById('clean-sheet-away').innerText = stats[0].clean_sheet.away;
-        document.getElementById('clean-sheet-total').innerText = stats[0].clean_sheet.total;
-
+        document.getElementById('clean-sheet-home').innerText = stats.clean_sheet.home;
+        document.getElementById('clean-sheet-away').innerText = stats.clean_sheet.away;
+        document.getElementById('clean-sheet-total').innerText = stats.clean_sheet.total;
+    
         // Update failed to score statistics
         document.getElementById('failed-to-score-home').innerText = stats[0].failed_to_score.home;
         document.getElementById('failed-to-score-away').innerText = stats[0].failed_to_score.away;
         document.getElementById('failed-to-score-total').innerText = stats[0].failed_to_score.total;
-    
+
+        // Update draw statistics
+        document.getElementById('nr-of-draws').innerText = stats[0].league.draws.total;
+        document.getElementById('draws-home').innerText = stats[0].league.draws.home;
+        document.getElementById('draws-away').innerText = stats[0].league.draws.away;
     }
-    
+
     const searchButton = document.getElementById('search-button');
-    
+
     searchButton.addEventListener('click', () => {
         const teamName = document.getElementById('team-input').value.trim();
         if (teamName) {
@@ -167,6 +176,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
             searchButton.innerText = 'Searching...';
         }
     });
-    
-});
+
+    });
 
