@@ -157,14 +157,17 @@ document.addEventListener('DOMContentLoaded', (event) => {
         document.getElementById('clean-sheet-total').innerText = stats.clean_sheet.total;
     
         // Update failed to score statistics
-        document.getElementById('failed-to-score-home').innerText = stats[0].failed_to_score.home;
-        document.getElementById('failed-to-score-away').innerText = stats[0].failed_to_score.away;
-        document.getElementById('failed-to-score-total').innerText = stats[0].failed_to_score.total;
+        document.getElementById('failed-to-score-home').innerText = stats.failed_to_score.home;
+        document.getElementById('failed-to-score-away').innerText = stats.failed_to_score.away;
+        document.getElementById('failed-to-score-total').innerText = stats.failed_to_score.total;
 
         // Update draw statistics
-        document.getElementById('nr-of-draws').innerText = stats[0].league.draws.total;
-        document.getElementById('draws-home').innerText = stats[0].league.draws.home;
-        document.getElementById('draws-away').innerText = stats[0].league.draws.away;
+        document.getElementById('nr-of-draws').innerText = stats.league.draws.total;
+        document.getElementById('draws-home').innerText = stats.league.draws.home;
+        document.getElementById('draws-away').innerText = stats.league.draws.away;
+
+        // Reset search button text
+        document.getElementById('search-button').innerText = 'Search';
     }
 
     const searchButton = document.getElementById('search-button');
@@ -172,7 +175,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     searchButton.addEventListener('click', () => {
         const teamName = document.getElementById('team-input').value.trim();
         if (teamName) {
-            fetchAndDisplayTeamInfo(apiKey, teamName, '2021');
+            fetchAndDisplayTeamInfo(apiKey, teamName);
             searchButton.innerText = 'Searching...';
         }
     });
