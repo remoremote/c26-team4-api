@@ -61,12 +61,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
     
         const teamUrl = `${apiUrl}/teams?id=${teamId}`;
         const teamData = await fetchData(teamUrl, options);
-        const {
-            team: {
-                team,
-                venue
-            }
-        } = teamData.response[0];
+        const team = teamData.response[0].team;
+        const venue = teamData.response[0].venue;
     
         const leagueUrl = `${apiUrl}/leagues?team=${teamId}`;
         const leagueData = await fetchData(leagueUrl, options);
@@ -82,8 +78,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
         console.log("league:", league);
         console.log("team:", team);
         console.log("venue:", venue);
-    
-    }    
+    }
+      
     
     async function fetchAndDisplayTeamInfo(apiKey, teamName, season) {
         const teamId = await getTeamIdByName(apiKey, teamName);
@@ -95,80 +91,66 @@ document.addEventListener('DOMContentLoaded', (event) => {
         }
     }
     
+    function updateElement(selector, property, value) {
+        const element = document.querySelector(selector);
+        if (element) {
+            element[property] = value;
+        }
+    }
+    
+    function updateTeamInfo(team) {
+        console.log("updateTeamInfo:", team);
+        updateElement('#team-input', 'value', team.name);
+        updateElement('#search-button', 'innerText', 'Search');
+        updateElement('.team-img img', 'src', team.logo);
+        updateElement('.team-facts h2', 'innerText', team.name);
+        updateElement('.team-facts p:nth-child(2)', 'innerText', team.founded);
+        updateElement('.team-facts p:nth-child(3)', 'innerText', team.country);
+    }
+    
+    function updateVenueInfo(venue) {
+        console.log("updateVenueInfo:", venue);
+        updateElement('#stadion-city', 'innerText', venue.city);
+        updateElement('#stadion-address', 'innerText', venue.address);
+        updateElement('#stadion-capacity', 'innerText', venue.capacity);
+        updateElement('#stadion-surface', 'innerText', venue.surface);
+        updateElement('#stadion-name', 'innerText', venue.name);
+        updateElement('#stadion-img', 'src', venue.image);
+    }
+    
+    function updateLeagueInfo(league) {
+        console.log("updateLeagueInfo:", league);
+        updateElement('#league-name', 'innerText', league.name);
+        updateElement('#league-year', 'innerText', league.currentSeason.year);
+        updateElement('#league-country', 'innerText', league.country);
+    }
+    
+    function updateStatsInfo(stats) {
+        console.log("updateStatsInfo:", stats);
+        updateElement('#total-matches', 'innerText', stats.matches.played.total);
+        updateElement('#total-goals', 'innerText', stats.goals.total);
+        updateElement('#average-goals', 'innerText', (stats.goals.total / stats.matches.played.total).toFixed(2));
+        updateElement('#total-wins', 'innerText', stats.totalWins);
+        updateElement('#total-draws', 'innerText', stats.totalDraws);
+        updateElement('#total-losses', 'innerText', stats.totalLosses);
+        updateElement('#clean-sheets', 'innerText', stats.cleanSheets);
+        updateElement('#failed-to-score', 'innerText', stats.failedToScore);
+        updateElement('#total-home-matches', 'innerText', stats.matches.played.home);
+        updateElement('#total-away-matches', 'innerText', stats.matches.played.away);
+    }    
+    
     function updateHTML(stats, league, team, venue) {
         if (!stats || !league || !team || !venue) return; // return if any of the data is missing
     
-        // Update team information
-        document.getElementById('team-input').value = team.name;
-        document.getElementById('search-button').innerText = 'Search';
+        updateTeamInfo(team);
+        updateVenueInfo(venue);
+        updateLeagueInfo(league);
+        updateStatsInfo(stats);
     
-        // Update team details
-        document.querySelector('.team-img img').src = team.logo;
-        document.querySelector('.team-facts h2').innerText = team.name;
-        document.querySelector('.team-facts p:nth-child(2)').innerText = team.founded;
-        document.querySelector('.team-facts p:nth-child(3)').innerText = team.country;
-    
-        // Update venue information
-        document.getElementById('stadion-city').innerText = venue.city;
-        document.getElementById('stadion-address').innerText = venue.address;
-        document.getElementById('stadion-capacity').innerText = venue.capacity;
-        document.getElementById('stadion-surface').innerText = venue.surface;
-        document.getElementById('stadion-name').innerText = venue.name;
-        document.getElementById('stadion-img').src = venue.image;
-    
-        // Update league information
-        document.getElementById('league-name').innerText = league.name;
-        document.getElementById('league-year').innerText = league.currentSeason.year;
-        document.getElementById('league-country').innerText = league.country;
-    
-        // Update match statistics
-        document.getElementById('nr-of-matches').innerText = stats.fixtures.played.total;
-        document.getElementById('matches-home').innerText = stats.fixtures.played.home;
-        document.getElementById('matches-away').innerText = stats.fixtures.played.away;
-    
-        // Update goal statistics
-        document.getElementById('nr-of-goals').innerText = stats.goals.for.total;
-        document.getElementById('goals-home').innerText = stats.goals.for.home;
-        document.getElementById('goals-away').innerText = stats.goals.for.away;
-    
-        // Update average goal statistics
-        document.getElementById('avg-nr-of-goals').innerText = stats.goals.for.average.total;
-        document.getElementById('avg-goals-home').innerText = stats.goals.for.average.home;
-        document.getElementById('avg-goals-away').innerText = stats.goals.for.average.away;
-    
-        // Update win statistics
-        document.getElementById('nr-of-wins').innerText = stats.wins.total;
-        document.getElementById('wins-home').innerText = stats.wins.home;
-        document.getElementById('wins-away').innerText = stats.wins.away;
-    
-        // Update draw statistics
-        document.getElementById('nr-of-draws').innerText = stats.draws.total;
-        document.getElementById('draws-home').innerText = stats.draws.home;
-        document.getElementById('draws-away').innerText = stats.draws.away;
-    
-        // Update loss statistics
-        document.getElementById('nr-of-losses').innerText = stats.loses.total;
-        document.getElementById('losses-home').innerText = stats.loses.home;
-        document.getElementById('losses-away').innerText = stats.loses.away;
-    
-        // Update clean sheet statistics
-        document.getElementById('clean-sheet-home').innerText = stats.clean_sheet.home;
-        document.getElementById('clean-sheet-away').innerText = stats.clean_sheet.away;
-        document.getElementById('clean-sheet-total').innerText = stats.clean_sheet.total;
-    
-        // Update failed to score statistics
-        document.getElementById('failed-to-score-home').innerText = stats.failed_to_score.home;
-        document.getElementById('failed-to-score-away').innerText = stats.failed_to_score.away;
-        document.getElementById('failed-to-score-total').innerText = stats.failed_to_score.total;
-
-        // Update draw statistics
-        document.getElementById('nr-of-draws').innerText = stats.league.draws.total;
-        document.getElementById('draws-home').innerText = stats.league.draws.home;
-        document.getElementById('draws-away').innerText = stats.league.draws.away;
-
         // Reset search button text
-        document.getElementById('search-button').innerText = 'Search';
+        updateElement('#search-button', 'innerText', 'Search');
     }
+    
 
     const searchButton = document.getElementById('search-button');
 

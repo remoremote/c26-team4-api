@@ -187,4 +187,14 @@ document.addEventListener('DOMContentLoaded', (event) => {
     seasonInput.addEventListener('input', () => {
         searchButton.innerText = 'Search';
     });
+
+    document.getElementById('search-button').addEventListener('click', () => {
+        const teamName = document.getElementById('team-input').value;
+        const season = "2022"; // You can change this to a dynamic value if needed
+        if (teamName) {
+            fetchAndDisplayTeamInfo(apiKey, teamName, season);
+        } else {
+            alert('Please enter a team name');
+        }
+    });
 });
